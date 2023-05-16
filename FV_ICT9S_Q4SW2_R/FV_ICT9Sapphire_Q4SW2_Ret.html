@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FV_ICT9Sapphire_Q4SW2_Ret</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 style="text-align: center;">Time Converter</h1>
+      <form>
+        <div class="form-group">
+          <label for="time">Choose Time:</label>
+          <select class="form-control" id="time">
+            <option value="minutes">Minutes</option>
+            <option value="seconds">Seconds</option>
+            <option value="hours">Hours</option>
+            <option value="days">Days</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="value">Enter Value:</label>
+          <input type="number" class="form-control" id="value">
+        </div>
+        <button type="button" class="btn btn-primary" id="convert">Convert</button>
+       <button type="button" class="btn btn-primary" onclick="location.reload()">Clear Result</button> 
+      </form>
+      <div id="result"></div>
+    </div>
+    <script>
+      // add JavaScript code to handle the conversion of time values
+      document.getElementById("convert").addEventListener("click", function() {
+        var time = document.getElementById("time").value;
+        var value = document.getElementById("value").value;
+        var result = 0;
+        if (time == "minutes") {
+          result = value * 60;
+          document.getElementById("result").innerHTML = value + " minutes = " + result + " seconds, " + (value / 60) + " hours, " + (value / 1440) + " days";
+        } else if (time == "seconds") {
+          result = value / 60;
+          document.getElementById("result").innerHTML = value + " seconds = " + result + " minutes, " + (result / 60) + " hours, " + (result / 1440) + " days";
+        } else if (time == "hours") {
+          result = value * 3600;
+          document.getElementById("result").innerHTML = value + " hours = " + (result / 60) + " minutes, " + (value / 24) + " days, " + result + " seconds";
+        } else if (time == "days") {
+          result = value * 86400;
+          document.getElementById("result").innerHTML = value + " days = " + (result / 60) + " minutes, " + (result / 3600) + " hours, " + result + " seconds";
+        }
+      });
+    </script>
+  </body>
+</html>
+
